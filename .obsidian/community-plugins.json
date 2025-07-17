@@ -1,4 +1,18 @@
 [
   "obsidian-git",
-  "shiki-highlighter"
+  "advanced-canvas",
+  "obsidian-advanced-slides",
+  "table-editor-obsidian",
+  "better-export-pdf",
+  "buttons",
+  "obsidian-checklist-plugin",
+  "editing-toolbar",
+  "obsidian-icon-folder",
+  "image-size",
+  "obsidian-image-toolkit",
+  "open-in-new-tab",
+  "obsidian-style-settings",
+  "obsidian-tasks-plugin",
+  "templater-obsidian",
+  "code-styler"
 ]

@@ -1,0 +1,1 @@
+Wiki - wtyczki Pascal.pas

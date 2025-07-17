@@ -1,0 +1,85 @@
+/* Bloki kodu: read mode i edit mode */
+.markdown-rendered pre code,
+pre code,
+.cm-s-obsidian pre.HyperMD-codeblock {
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+  font-family: Consolas, 'Courier New', monospace !important;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+/* Inline code (opcjonalnie, jeśli chcesz) */
+.markdown-rendered code:not(pre code),
+code:not(pre code) {
+  background: #2e2e2e !important;
+  color: #d4d4d4 !important;
+  border-radius: 3px;
+  padding: 0.2em 0.4em;
+  font-family: Consolas, 'Courier New', monospace !important;
+  font-size: 14px;
+}
+
+/* Kluczowe elementy składni */
+.token.keyword,
+.cm-keyword {
+  color: #569cd6 !important;
+}
+
+/* Typy, klasy */
+.token.type,
+.cm-type,
+.token.class-name,
+.cm-variable-3 {
+  color: #569cd6 !important;
+}
+
+/* Funkcje/procedury */
+.token.function,
+.token.title.function,
+.token.procedure,
+.token.identifier,
+.token.title,
+.cm-def {
+  color: #dcdcaa !important;
+}
+
+/* Zmienne */
+.token.variable,
+.cm-variable {
+  color: #9cdcfe !important;
+}
+
+/* Stałe */
+.token.constant,
+.cm-property,
+.cm-variable-2 {
+  color: #4fc1ff !important;
+}
+
+/* Komentarze */
+.token.comment,
+.cm-comment {
+  color: #6a9955 !important;
+  font-style: italic;
+}
+
+/* Stringi */
+.token.string,
+.cm-string {
+  color: #ce9178 !important;
+}
+
+/* Liczby */
+.token.number,
+.cm-number {
+  color: #b5cea8 !important;
+}
+
+/* Operatory */
+.token.operator,
+.cm-operator {
+  color: #d4d4d4 !important;
+}
