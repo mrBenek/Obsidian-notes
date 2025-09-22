@@ -84,6 +84,11 @@ begin
 
         stSql.Open('');
         vIdPoz := stSql.FieldByName('AID_POZ').AsInteger;
+ {       while not stSql.Eof do
+        begin
+           wService.RozliczMeldunek(stSql.FieldByName('ID_MELDUNEK').AsInteger);
+          stSql.Next;
+        end; } //w przypadku odczytu kilku wartości
       finally
         stSql.Free;
       end;

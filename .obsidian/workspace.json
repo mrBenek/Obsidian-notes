@@ -4,39 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "fb010d45fd045408",
+        "id": "f98ce4b2e6b7b213",
         "type": "tabs",
         "children": [
           {
-            "id": "8ce258b6f97bec69",
+            "id": "99089c12a0bc6fda",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notatki/Wtyczki Pascal/Wiki.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Wiki"
-            }
-          },
-          {
-            "id": "0c03bcd8b9a80959",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notatki/Przydatne.md",
+                "file": "Notatki/Uruchamianie Presitż z konsoli.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Przydatne"
+              "title": "Uruchamianie Presitż z konsoli"
             }
           },
           {
-            "id": "2244f62cacc3dd5e",
+            "id": "503e3251414045aa",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -50,21 +36,63 @@
             }
           },
           {
-            "id": "83d41909a8dee50e",
+            "id": "bfef23f264d0b039",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notatki/Wtyczki Pascal/Transakcje.md",
+                "file": "Notatki/Przydatne.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Transakcje"
+              "title": "Przydatne"
             }
           },
           {
-            "id": "6ac595c7740868ae",
+            "id": "d0ebdc2a5531e6a2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/PozPlugin.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "PozPlugin"
+            }
+          },
+          {
+            "id": "4fff3d38833cbe03",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/DokGmPalec.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "DokGmPalec"
+            }
+          },
+          {
+            "id": "037f623f07a1f595",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/Pobieranie danych na oknach.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Pobieranie danych na oknach"
+            }
+          },
+          {
+            "id": "bedae611ca397f77",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,7 +106,147 @@
             }
           },
           {
-            "id": "8d3befeee441387b",
+            "id": "655c6315bfda8442",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/Transakcje.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Transakcje"
+            }
+          },
+          {
+            "id": "c453ae910be72869",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/TfWindowPlugins.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "TfWindowPlugins"
+            }
+          },
+          {
+            "id": "a7acab16bcedcd2e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Wyceny ustalenia/UniMetal/Wdrożenie.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Wdrożenie"
+            }
+          },
+          {
+            "id": "a037c2398124fe7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/Transakcje.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Transakcje"
+            }
+          },
+          {
+            "id": "aad3c40850b506b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/PozPlugin.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "PozPlugin"
+            }
+          },
+          {
+            "id": "9a861071b0c03ed1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/Gotowe funkcje.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Gotowe funkcje"
+            }
+          },
+          {
+            "id": "31d3b8582b56e50e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Pytania do integracji ze sklepem.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Pytania do integracji ze sklepem"
+            }
+          },
+          {
+            "id": "88573448acf9cdaf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/TfWindowPlugins.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "TfWindowPlugins"
+            }
+          },
+          {
+            "id": "d17839557b07cde2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/PozPlugin.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "PozPlugin"
+            }
+          },
+          {
+            "id": "4e5069b1a5839c2b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notatki/Wtyczki Pascal/Wiki.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Wiki"
+            }
+          },
+          {
+            "id": "b84ff2c6670e1d05",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -90,23 +258,9 @@
               "icon": "lucide-file",
               "title": "Untitled"
             }
-          },
-          {
-            "id": "38c2f917291934e7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notatki/Wtyczki Pascal/DokGmPalec.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "DokGmPalec"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 16
       }
     ],
     "direction": "vertical"
@@ -138,7 +292,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "RecordCount",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -253,6 +407,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -265,43 +420,43 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2244f62cacc3dd5e",
+  "active": "4e5069b1a5839c2b",
   "lastOpenFiles": [
-    "Readme.md",
-    "Notatki/Przeniesione notatki.md",
-    "Notatki/Przydatne.md",
+    "Notatki/Wtyczki Pascal/PozPlugin.md",
     "Notatki/Wtyczki Pascal/Wiki.md",
-    "Notatki/Wtyczki Pascal/Transakcje.md",
-    "Notatki/Wtyczki Pascal/DokGmPalec.md",
-    "Notatki/CSharp/Untitled.md",
-    "Notatki/Wtyczki Pascal/Dodanie rezerwacji do zamówienia.md",
-    "Notatki/Wtyczki Pascal/Bufor urządzeń zewnętrznych.md",
     "Notatki/Wtyczki Pascal/TfWindowPlugins.md",
+    "Notatki/Wtyczki Pascal/Pobieranie danych na oknach.md",
+    "Notatki/Przeniesione notatki.md",
+    "Notatki/Uruchamianie Presitż z konsoli.md",
+    "Notatki/Przydatne.md",
+    "Notatki/Wtyczki Pascal/DokGmPalec.md",
+    "Notatki/Wtyczki Pascal/Dodanie rezerwacji do zamówienia.md",
+    "Notatki/Wtyczki Pascal/Gotowe funkcje.md",
+    "Wyceny ustalenia/UniMetal/Wdrożenie.md",
+    "Untitled.md",
+    "Pytania do integracji ze sklepem.md",
+    "Notatki/Wtyczki Pascal/Transakcje.md",
+    "Notatki/Wtyczki Pascal/Bufor urządzeń zewnętrznych.md",
+    "Notatki/CSharp/Untitled.md",
+    "Passy.md",
+    "Notatki/Przydatne - inne.md",
+    "Notatki/Panel/Plik konfiguracyjny.md",
+    "Notatki/Panel",
+    "Readme.md",
+    "Lists.md",
+    "Inline code.md",
+    "Embeds.md",
+    "998_SZABLONY/ANALIZA WDROŻENIOWA/ANALIZA WDROŻENIOWA SYSTEMU ERP 1.md",
+    "Wyceny ustalenia/Arcom/Panel meldunkowy - 04.08.2025.md",
+    "998_SZABLONY/FORMATOWANIE/DIAGRAMY.md",
+    "Wyceny ustalenia/UniMetal",
+    "Wyceny ustalenia",
     "Notatki/CSharp",
     "Notatki/Wtyczki Pascal",
-    "998_SZABLONY/CODE_BLOCK/Formatowania.md",
-    "998_SZABLONY/FORMATOWANIE/WZÓR_MATEMATYCZNY.md",
-    "998_SZABLONY/FORMATOWANIE/TASKS.md",
-    "998_SZABLONY/FORMATOWANIE/TASKI_TODO.md",
-    "998_SZABLONY/FORMATOWANIE/TABELE.md",
-    "998_SZABLONY/FORMATOWANIE/PRZYPIS.md",
-    "998_SZABLONY/FORMATOWANIE/OGÓLNE_FORMATOWANIE.md",
-    "998_SZABLONY/FORMATOWANIE/NAGŁÓWKI.md",
-    "998_SZABLONY/FORMATOWANIE/DIAGRAMY.md",
-    "998_SZABLONY/FORMATOWANIE/FORMATOWANIE_OBRAZKÓW.md",
-    "998_SZABLONY/FORMATOWANIE/CALLOUTY.md",
-    "998_SZABLONY/FORMATOWANIE/BLOK_KODU.md",
-    "998_SZABLONY/ANALIZA WDROŻENIOWA/ANALIZA WDROŻENIOWA SYSTEMU ERP 1.md",
-    "998_SZABLONY/ZGŁOSZENIA/FIRMA_ZG_001.md",
     "998_SZABLONY/ZGŁOSZENIA",
-    "998_SZABLONY/IKONY/SYMBOLE I IKONY.md",
     "998_SZABLONY/IKONY",
-    "998_SZABLONY/FORMATOWANIE/KOMENTARZE.md",
     "998_SZABLONY/FORMATOWANIE",
     "998_SZABLONY/CODE_BLOCK",
-    "998_SZABLONY/ANALIZA WDROŻENIOWA",
-    "998_SZABLONY",
-    "998_SZABLONY2/998_SZABLONY/ZGŁOSZENIA",
-    "998_SZABLONY2/998_SZABLONY/IKONY"
+    "998_SZABLONY/ANALIZA WDROŻENIOWA"
   ]
 }

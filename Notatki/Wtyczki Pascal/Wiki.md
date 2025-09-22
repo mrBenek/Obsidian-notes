@@ -410,6 +410,67 @@ end;
 ```
 ```pascal title:"Branie wszystkich zaznaczonych rekordów"
 Branie wszystkich zaznaczonych rekordow
+
+procedure UruchomProcedure(sIdNagl1: string; sIdNagl2: string);
+var
+   sSql: string;
+   iRes: integer;
+begin
+   sSql := ' insert into NAGLSPRZ (RODZAJSPRZNAGL, ID_NAGLCO, ID_NAGLCZYM, ID_POWKOREKTY) ' + LN +
+           ' values (45, ' + sIdNagl1 + ', ' + sIdNagl2 + ', null); ';
+   if (ExecuteSQL(vSql, 0) <> 1) then
+   begin
+     Inf('Nie utworzono pozycji urządzenia zewnętrznego.', 100);
+     Exit;
+   end;
+end;
+
+procedure UruchomProcedure(idZlecenie: string; procName: string);
+var
+   sql: string;
+
+begin
+   sql := 'execute procedure ' + procName + '(' + idZlecenie + ')';
+   //inf300(sql);
+   if (ExecuteSQL(sql, 0) <> 1) then
+   begin
+     Inf('Błąd wywołania procedury. sql: ' + sql, 100);
+     Exit;
+   end;
+end;
+
+procedure BookingLOT(procName: string);
+var
+  idZlecenie: string;
+
+  i: integer;
+  vLista: string;
+  vIdZlecenie: string;
+  vListaIdZlecenie: TStringList;
+begin
+  vIdZlecenie := inttostr(frm.QueryMain.FieldByName('ID_ZLECENIE').AsInteger);
+  if (frm.QueryMain.MarkCount > 0) then
+    vLista := frm.QueryMain.GetMarkedRows
+  else
+    vLista := '(' + vIdZlecenie + ')';
+
+  vLista := Trim(Copy(vLista, 2, Length(vLista) - 2));
+  Zastap(',', #13 + #10, vLista);
+  vListaIdZlecenie := TStringList.Create;
+  try
+    vListaIdZlecenie.Text := vLista;
+
+    for i := 0 to vListaIdZlecenie.Count - 1 do
+    begin
+      idZlecenie := vListaIdZlecenie[i];
+
+      UruchomProcedure(idZlecenie, procName);
+    end;
+  finally
+    vListaIdZlecenie.Free;
+  end;
+end;
+
 procedure TworzeniePowiazania(seder : TObject);
 var
   idNagl1: string;
@@ -622,4 +683,205 @@ end;
 vItemIndex := TstXComboBox(frm.CB_SposPl).Items.IndexOf(cSposPlatnosci_DlaLimitPrzedplata);
 if (vItemIndex >= 0) then
   frm.CB_SposPl.ItemIndex := vItemIndex;
+```
+
+```pascal title:"Aktualnie zaznaczone okno (Zakładki czy główne)"
+frm.ActiveControl.Parent.Name
+```
+
+```pascal title:"Wykonywanie dla zaznaczonych elementów w pętli"
+procedure PrzeliczMeldunki(Sender: TObject);
+var
+  idZlecenie: string;
+  i: integer;
+  vLista: string;
+  vSql: string;
+  vIdZlecenie: string;
+  vListaIdZlecenie: TStringList;
+  wService: TServiceZpPlugins;
+  vDataSource: TDataSource;
+
+begin
+  vIdZlecenie := inttostr(frm.QueryMain.FieldByName('ID_ZLECENIE').AsInteger);
+  if (frm.QueryMain.MarkCount > 0) then
+    vLista := frm.QueryMain.GetMarkedRows
+  else
+    vLista := '(' + vIdZlecenie + ')';
+
+  vLista := Trim(Copy(vLista, 2, Length(vLista) - 2));
+  Zastap(',', #13 + #10, vLista);
+  vListaIdZlecenie := TStringList.Create;
+  wService := TServiceZpPlugins.Create(nil, nil);
+  try
+    vListaIdZlecenie.Text := vLista;
+
+    for i := 0 to vListaIdZlecenie.Count - 1 do
+    begin
+      idZlecenie := vListaIdZlecenie[i];
+
+      vSql := 'SELECT ID_MELDUNEK FROM XXX_ZP_PRZELICZ_MELDUNKI(' + idZlecenie + ')';
+      vDataSource := OpenQuerySQL(vSQL, 0);
+      if vDataSource <> nil then
+      begin
+        try
+          vDataSource.DataSet.First;
+          while not vDataSource.DataSet.Eof do
+          begin
+            wService.PrzeszacujMeldunek(vDataSource.DataSet.FIELDBYNAME('ID_MELDUNEK').ASINTEGER);
+            vDataSource.DataSet.Next;
+          end;
+        finally
+          CloseQuerySQL(vDataSource);
+        end;
+      end;
+    end;
+  finally
+    wService.Free;
+    vListaIdZlecenie.Free;
+  end;
+end;
+```
+
+```pascal title:"Pobieranie wartości z procedury i potem ich analiza"
+procedure ProcPrzeliczMeldunki(idZlecenie: string);
+var
+  vSql: string;
+  vTransaction: TstTransaction;
+  vDataSource: TDataSource;
+  stSql: TstSQL;
+  wService: TServiceZpPlugins;
+  vListaIdMeldunek: TIntegerList;
+  i: integer;
+  vIdMeldunek: integer;
+
+begin
+  vTransaction := TstTransaction.Create(nil);
+  vListaIdMeldunek := TIntegerList.Create;
+  wService := TServiceZpPlugins.Create(nil, nil);
+  try
+    vDataSource := OpenQuerySQL('select 1 from rdb$database', 0);
+    try
+      vTransaction.DefaultDatabase := TstQuery(vDataSource.DataSet).Transaction.DefaultDatabase;
+    finally
+      CloseQuerySQL(vDataSource);
+    end;
+
+    vSQL := 'SELECT ID_MELDUNEK FROM XXX_ZP_PRZELICZ_MELDUNKI(' + idZlecenie + ')';
+
+    vTransaction.stBeginTrans('');
+    try
+      stSql := TstSQL.Create(nil);
+      try
+        stSql.Transaction := TFIBTransaction(vTransaction);
+        stSql.SQL.Text := vSql;
+
+        stSql.Open('');
+        while not stSql.Eof do
+        begin
+          vListaIdMeldunek.Add(stSql.FieldByName('ID_MELDUNEK').AsInteger);
+          stSql.Next;
+        end;
+      finally
+        stSql.Free;
+      end;
+      vTransaction.stCommit('');
+    finally
+      if vTransaction.InTransaction then
+        vTransaction.stRollback('');
+    end;
+
+    if (vListaIdMeldunek.Count > 0) then
+    begin
+      for i := 0 to vListaIdMeldunek.Count - 1 do
+      begin
+        vIdMeldunek := vListaIdMeldunek.GetValue(i);
+        //inf300(inttostr(vidmeldunek));
+        wService.PrzeszacujMeldunek(vIdMeldunek);
+        wService.RozliczMeldunek(vIdMeldunek);
+      end;
+      inf300('Meldunki zostały przeliczone');
+      frm.DS_main.DataSet.REFRESH;
+    end;
+  finally
+    vListaIdMeldunek.Free;
+    vTransaction.Free;
+    wService.Free;
+  end;
+end;
+```
+
+```pascal title:"Tworzenie tablicy obiektów"
+//nie musimy zwalniać obiektu jak w przypadku list
+type TKurier = record
+    id:string;
+    nazwa:string;
+    typ_etykiety:string;
+    typ_uslugi:string;
+    typ_paczki:string;
+    platnik:string;
+    link:string;
+end;
+
+var
+  kurierzy: array of TKurier;
+  
+function szukajWLisciePoId(wartosc:String):TKurier;
+var
+  i: Integer;
+begin
+    for i:=0 to length(modules) - 1 do
+    begin
+        if(kurierzy[i].id=wartosc) then
+        begin
+             Result:=kurierzy[i];
+             break;
+        end;
+    end ;
+end;
+
+function konfigurujModul(nazwa:string; id:string) :TKurier;
+var
+module :TKurier;
+begin
+  module.id:=id;
+  module.nazwa:=nazwa;
+
+  case nazwa of
+   'Kurier GLS': begin
+    module.typ_etykiety:='roll_160x100_pdf';
+    module.typ_uslugi:='0';
+    module.typ_paczki:='';
+    module.platnik:='0';
+    ... //dużo tego było...
+    
+  Result:=module;
+end;    
+
+
+procedure initKurierzy();
+var
+  data : TDataSource;
+  i, ile:integer;
+  nazwa, id:string;
+begin
+    ile:=StrToInt(GetFromQuerySQL('select count(*) from SPOSDOSTAWY where aktywny=1 and nazwasposdostawy containing ''kurier''', 0));
+    SetLength(modules, ile);
+    data := OpenQuerySQL('select ID_SPOSDOSTAWY, nazwasposdostawy, aktywny from SPOSDOSTAWY where aktywny=1 and nazwasposdostawy containing ''kurier''',0);
+    data.DataSet.First;
+    i:=0;
+    while not data.DataSet.EOF do
+    begin
+         id:=data.DataSet.FIELDBYNAME('ID_SPOSDOSTAWY').ASSTRING;
+         nazwa :=data.DataSet.FIELDBYNAME('nazwasposdostawy').ASSTRING;
+         modules[i]:= konfigurujModul(nazwa, id);
+
+        inc(i);
+        data.DataSet.Next;
+    end;
+    CloseQuerySQL(data);
+end;
+```
+
+```pascal title:"Liczba rekordów w DataSet"
+vDataSet.RecordCount
 ```

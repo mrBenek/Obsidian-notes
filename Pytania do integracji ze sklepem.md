@@ -1,0 +1,11 @@
+- [ ] Snadbox - instancja testowa
+- [ ] W jaki sposób podłączyć się do API?
+- [ ] Co będziemy importować?
+- [ ] Zlecenia
+- [ ] Kontrahentów
+- [ ] Aktualizujemy Statusy
+- [ ] Zakładamy kartoteki?
+- [ ] Jaki warunek na pobieranie
+- [ ] Synchronizacja w stronę do sklepu co będziemy przesyłać
+- [ ] Dokumentacja?
+

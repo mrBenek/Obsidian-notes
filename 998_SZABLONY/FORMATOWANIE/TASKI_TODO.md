@@ -10,6 +10,6 @@
 - [x] #tags, [links](), **formatting** supported
 - [x] list syntax required (any unordered or ordered list supported)
 - [x] this is a complete item
-- [?] this is also a complete item (works with every character)
+- [x] this is also a complete item (works with every character) ✅ 2025-07-28
 - [ ] this is an incomplete item
-- [ ] tasks can be clicked in Preview to be checked off
+- [x] tasks can be clicked in Preview to be checked off ✅ 2025-08-04

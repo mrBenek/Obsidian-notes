@@ -1,17 +1,43 @@
-```csharp title:test
-public static bool PrintRB(int id, string printerName, string jsonParams)
-{
-    if (id <= 0)
-        return false;
+```csharp title:"Uruchomienie programu C# z wtyczki w Prestiż"
+//TfDokSprzedazDok
+{$ADDTYPE TDotNetPrestiz}
+{$ADDTYPE TfDokSprzedazDok}
 
-    var wRes = UniData.RestCom.PostCall(
-        string.Format("TstBaseMethods/\"PrintRB\"/{0}/{1}/", id.ToString(), printerName), jsonParams);
+var
+    frm : TfDokSprzedazDok;
+    wDNRun: TDotNetPrestiz;
+    res : string;
 
-    if (IsRestError())
-    {
-        throw new System.ArgumentException("Błąd REST: " + ErrorMessage, "PrintRB");
-    }
+procedure MojProgram(Sender: TObject);
+begin
+  wDNRun :=  TDotNetPrestiz.Create;
+  try
+    try
+      res := wDNRun.RunDotNetProgram('MojDotNet', '1', '');
+      inf300('Odpowiedź z dotNeta : ' + res);
+    except
+    end;
+  finally
+    wDNRun.Free;
+  end;
+end;
 
-    return true;
-}
+begin
+  if (Self is TfDokSprzedazDok) then
+  begin
+    if (frm = nil) then
+    begin
+      frm := Self as TfDokSprzedazDok;
+    end;
+    if (frm <> nil) then
+    begin
+      //if (frm.WindowId = [w_ID]) then
+      begin
+        // co ma zrobić wtyczka
+        PluginsAddAction(Self, 'Mój progrsm', 'money_bag_24', @MojProgram);
+      end;
+    end;
+  end;
+end.
+
 ```
